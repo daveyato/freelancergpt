@@ -1,0 +1,5 @@
+discord.py
+openai
+psycopg2>=2.0,<3.0
+unittest-xml-reporting
+python-dotenv==0.19.2
