@@ -1,4 +1,4 @@
-#!/Users/davebentley/Desktop/freelancergpt/venv/bin/python3.11
+#!/Users/davebentley/Desktop/pythonlatest/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

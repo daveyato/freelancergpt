@@ -1,10 +1,10 @@
 import os
 import openai.api_resources.chat_completion as openai
 import discord
-import psycopg2
 from dotenv import load_dotenv
 from discord.ext import commands
 from pathlib import Path
+
 
 # Get the path to the .env file located in the pythonlatest/app folder
 env_path = Path(__file__).parent / ".env"
@@ -18,28 +18,10 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 print("Discord Bot Token:", TOKEN)
 print("OpenAI API Key:", OPENAI_API_KEY)
-print("Database URL:", DATABASE_URL)
 
 # Set up OpenAI API
 openai.api_key = OPENAI_API_KEY\
 
-# Set up PostgreSQL database
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-cursor = conn.cursor()
-
-def create_table_if_not_exists():
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS messages (
-        id TEXT PRIMARY KEY,
-        content TEXT NOT NULL,
-        userId TEXT NOT NULL,
-        channelId TEXT NOT NULL
-    )
-    """)
-    conn.commit()
-
-
-create_table_if_not_exists()
 
 intents = discord.Intents.default()
 intents.members = True
