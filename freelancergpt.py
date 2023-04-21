@@ -1,7 +1,6 @@
 import os
 import openai.api_resources.chat_completion as openai
 import discord
-import psycopg2
 from dotenv import load_dotenv
 from discord.ext import commands
 from pathlib import Path
