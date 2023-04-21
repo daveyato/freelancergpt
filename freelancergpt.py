@@ -10,7 +10,7 @@ from pathlib import Path
 env_path = Path(__file__).parent / ".env"
 
 # Load environment variables
-load_dotenv()
+load_dotenv(dotenv_path=env_path, override=True)
 
 # Get the environment variables
 TOKEN = os.getenv('DISCORD_BOT_TOKEN')
@@ -79,6 +79,7 @@ async def test_welcome(ctx):
 
 async def store_message(channel_id, message_id, content, user_id):
     message_data = (
+        str(message_id),
         str(message_id),
         content,
         user_id,
